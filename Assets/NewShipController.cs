@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using OmnicatLabs.Managers;
 
 public class NewShipController : MonoBehaviour
 {
+    public MeshRenderer mesh;
+    public float flashTime = .5f;
+
     [Header("Standard Movement")]
     public float yawTorque = 500f;
     public float pitchTorque = 1000f;
@@ -34,9 +38,14 @@ public class NewShipController : MonoBehaviour
     private float glide, verticalGlide, horizontalGlide = 0f;
     private bool boosting = false;
     private float currentBoostAmount = 0f;
+    private List<Color> originalColors = new List<Color>();
 
     private void Start()
     {
+        foreach (Material mat in mesh.materials)
+        {
+            originalColors.Add(mat.color);
+        }
         rb = GetComponent<Rigidbody>();
         currentBoostAmount = maxBoostAmount;
         //Cursor.lockState = CursorLockMode.Confined;
@@ -45,6 +54,24 @@ public class NewShipController : MonoBehaviour
     public float GetNormalizedBoost()
     {
         return currentBoostAmount / maxBoostAmount;
+    }
+
+    public void OnDamaged()
+    {
+        foreach (Material mat in mesh.materials)
+        {
+            mat.color = Color.red;
+        }
+
+        TimerManager.Instance.CreateTimer(flashTime, ResetFlash);
+    }
+
+    private void ResetFlash()
+    {
+        for (int i = 0; i < mesh.materials.Length; i++)
+        {
+            mesh.materials[i].color = originalColors[i];
+        }
     }
 
     private void FixedUpdate()
