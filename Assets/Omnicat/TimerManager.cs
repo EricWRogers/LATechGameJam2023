@@ -7,14 +7,18 @@ namespace OmnicatLabs.Managers
 {
     public class Timer
     {
-        public Timer(float _amountOfTime, List<UnityAction> _listeners)
+        public Timer(float _amountOfTime, List<UnityAction> _listeners, bool _autoRestart)
         {
             amountOfTime = _amountOfTime;
             listeners = _listeners;
+            timeRemaining = amountOfTime;
+            autoRestart = _autoRestart;
         }
 
         public float amountOfTime;
         public List<UnityAction> listeners;
+        public float timeRemaining;
+        public bool autoRestart;
     }
 
     public class TimerManager : MonoBehaviour
@@ -30,16 +34,16 @@ namespace OmnicatLabs.Managers
             }
         }
 
-        public void CreateTimer(float amountOfTime, UnityAction listener)
+        public void CreateTimer(float amountOfTime, UnityAction listener, bool autoRestart = false)
         {
             List<UnityAction> temp = new List<UnityAction>();
             temp.Add(listener);
-            timers.Add(new Timer(amountOfTime, temp));
+            timers.Add(new Timer(amountOfTime, temp, autoRestart));
         }
 
-        public void CreateTimer(float amountOfTime, List<UnityAction> listeners)
+        public void CreateTimer(float amountOfTime, List<UnityAction> listeners, bool autoRestart = false)
         {
-            timers.Add(new Timer(amountOfTime, listeners));
+            timers.Add(new Timer(amountOfTime, listeners, autoRestart));
         }
 
         public void CreateTimer(Timer newTimer)
@@ -51,9 +55,9 @@ namespace OmnicatLabs.Managers
         {
             foreach (Timer timer in timers)
             {
-                timer.amountOfTime -= Time.deltaTime;
+                timer.timeRemaining -= Time.deltaTime;
 
-                if (timer.amountOfTime <= 0f)
+                if (timer.timeRemaining <= 0f)
                 {
                     if (timer.listeners.Count == 1)
                     {
@@ -66,10 +70,16 @@ namespace OmnicatLabs.Managers
                             listener.Invoke();
                         }
                     }
+
+                    if (timer.autoRestart)
+                    {
+                        timer.timeRemaining = timer.amountOfTime;
+                    }
                 }
             }
 
-            timers.RemoveAll(timer => timer.amountOfTime <= 0f);
+            timers.RemoveAll(timer => timer.timeRemaining <= 0f && !timer.autoRestart);
+
         }
     }
 }
