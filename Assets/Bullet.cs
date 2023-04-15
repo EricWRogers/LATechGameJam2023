@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using OmnicatLabs.Managers;
 using SuperPupSystems.Helper;
 
 public class Bullet : MonoBehaviour
@@ -18,10 +17,13 @@ public class Bullet : MonoBehaviour
     private bool hit = false;
     private Vector3 positionLastFrame;
     private RaycastHit info;
+    private Timer timer;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        timer = GetComponent<Timer>();
+        timer.TimeOut.AddListener(DestroyBullet);
 
         HandleMovement();
     }
@@ -32,7 +34,7 @@ public class Bullet : MonoBehaviour
 
         rb.AddForce(forward * speed, ForceMode.Impulse);
         launched = true;
-        TimerManager.Instance.CreateTimer(cullTime, DestroyBullet);
+        timer.StartTimer(cullTime);
     }
 
     private void FixedUpdate()
