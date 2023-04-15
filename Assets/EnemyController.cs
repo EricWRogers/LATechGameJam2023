@@ -7,6 +7,8 @@ public class EnemyController : MonoBehaviour
 {
     public MeshRenderer mesh;
     public float flashTime = .5f;
+    public float aiTurnSpeed = 0.8f;
+    public float speed = 10.0f;
 
     [Header("Standard Movement")]
     public float directionLockDistance = 50f;
@@ -65,7 +67,13 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        LookAtPlayer();
+        Debug.Log(GetComponent<SuperPupSystems.Helper.Health>().CurrentHealth);
+
+        if (Vector3.Distance(playerShip.transform.position,transform.position)>directionLockDistance)
+        {
+            LookAtPlayer();
+        }
+        
         HandleBoosting();
         HandleMovement();
     }
@@ -95,8 +103,11 @@ public class EnemyController : MonoBehaviour
 
     private void LookAtPlayer()
     {
-        if (lookAt)
-            transform.LookAt(playerShip.transform.position);
+        Quaternion lookTarget = Quaternion.LookRotation(
+            playerShip.transform.position
+            - transform.position);
+        
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookTarget, Time.deltaTime);
     }
 
     private void HandleBoosting()
@@ -126,6 +137,8 @@ public class EnemyController : MonoBehaviour
 
     private void HandleMovement()
     {
+        rb.velocity = transform.forward * speed;
+
         //rb.AddRelativeForce(transform.forward * thrust * Time.deltaTime);
 
         //if (Vector3.Distance(playerShip.transform.position, transform.position) <= directionLockDistance)
