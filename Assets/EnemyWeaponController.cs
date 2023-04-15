@@ -13,55 +13,22 @@ public class EnemyWeaponController : MonoBehaviour
     private bool canShoot = true;
     private bool startedTimer = false;
 
+    private void Start()
+    {
+        gameObject.GetComponent<SuperPupSystems.Helper.Timer>().CountDownTime = gunCooldown;
+    }
+
     public void Shoot()
     {
-        if (canShoot)
+        FireCannons();
+    }
+
+    private void FireCannons()
+    {
+        foreach (GameObject gun in guns)
         {
-            canShoot = false;
-            if (!startedTimer)
-            {
-                TimerManager.Instance.CreateTimer(gunCooldown, CanShoot, true);
-                startedTimer = true;
-            }
-
-            foreach (GameObject gun in guns)
-            {
-                GameObject bullet = Instantiate(bulletPrefab, gun.transform.position, gun.transform.rotation);
-                bullet.GetComponent<Bullet>().forward = transform.forward;
-            }
+            GameObject bullet = Instantiate(bulletPrefab, gun.transform.position, gun.transform.rotation);
+            bullet.GetComponent<Bullet>().forward = transform.forward;
         }
-
-        //if (context.canceled)
-        //{
-        //    shootHeld = false;
-        //}
-        //if (context.performed)
-        //{
-        //    shootHeld = true;
-        //    if (!startedTimer)
-        //    {
-        //        TimerManager.Instance.CreateTimer(gunCooldown, CanShoot, true);
-        //        startedTimer = true;
-        //    }
-        //}
-    }
-
-    private void Update()
-    {
-        Shoot();
-
-        //if (shootHeld && canShoot)
-        //{
-        //    canShoot = false;
-        //    foreach (GameObject gun in guns)
-        //    {
-        //        Instantiate(bulletPrefab, gun.transform.position, gun.transform.rotation);
-        //    }
-        //}
-    }
-
-    private void CanShoot()
-    {
-        canShoot = true;
     }
 }
