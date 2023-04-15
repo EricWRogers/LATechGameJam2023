@@ -24,7 +24,7 @@ public class Pickup : MonoBehaviour
 
     private void Start()
     {
-        ship = FindObjectOfType<ShipController>().gameObject;
+        ship = FindObjectOfType<NewShipController>().gameObject;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -42,7 +42,7 @@ public class Pickup : MonoBehaviour
 
             foreach(Collider hit in hits)
             {
-                if (hit.CompareTag("Ship"))
+                if (hit.CompareTag("Player"))
                 {
                     Destroy(gameObject);
                     Inventory.Instance.Add(type, amount);

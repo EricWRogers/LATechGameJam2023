@@ -13,15 +13,6 @@ public class EnemyWeaponController : MonoBehaviour
     private bool canShoot = true;
     private bool startedTimer = false;
 
-    private void Start()
-    {
-        Shoot();
-        Shoot();
-        Shoot();
-        Shoot();
-        Shoot();
-    }
-
     public void Shoot()
     {
         if (canShoot)

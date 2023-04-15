@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using OmnicatLabs.Managers;
+using SuperPupSystems.Helper;
 
 public class EnemyController : MonoBehaviour
 {
@@ -41,9 +41,13 @@ public class EnemyController : MonoBehaviour
     private float currentBoostAmount = 0f;
     private NewShipController playerShip;
     private List<Color> originalColors = new List<Color>();
+    private Timer timer;
 
     private void Start()
     {
+        timer = GetComponent<Timer>();
+        timer.TimeOut.AddListener(ResetFlash);
+
         foreach (Material mat in mesh.materials)
         {
             originalColors.Add(mat.color);
@@ -52,7 +56,6 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         currentBoostAmount = maxBoostAmount;
         playerShip = FindObjectOfType<NewShipController>();
-        //Cursor.lockState = CursorLockMode.Confined;
     }
 
     public float GetNormalizedBoost()
@@ -62,8 +65,6 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(GetComponent<SuperPupSystems.Helper.Health>().CurrentHealth);
-
         LookAtPlayer();
         HandleBoosting();
         HandleMovement();
@@ -81,7 +82,7 @@ public class EnemyController : MonoBehaviour
             mat.color = Color.red;
         }
 
-        TimerManager.Instance.CreateTimer(flashTime, ResetFlash);
+        timer.StartTimer(flashTime);
     }
 
     private void ResetFlash()
