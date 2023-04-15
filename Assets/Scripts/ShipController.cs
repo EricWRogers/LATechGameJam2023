@@ -49,7 +49,7 @@ public class ShipController : MonoBehaviour
     {
         Vector3 shipEulerAngles = transform.rotation.eulerAngles;
 
-        shipEulerAngles.z = (shipEulerAngles.z < 180) ? shipEulerAngles.z - 360 : shipEulerAngles.y;
+        shipEulerAngles.z = (shipEulerAngles.z > 180) ? shipEulerAngles.z - 360 : shipEulerAngles.z;
         shipEulerAngles.z = Mathf.Clamp(shipEulerAngles.z, -20f, 20f);
 
         transform.rotation = Quaternion.Euler(shipEulerAngles);
@@ -62,7 +62,7 @@ public class ShipController : MonoBehaviour
             rb.AddTorque(inputRotation * tiltForce * Time.deltaTime);
         }
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(inputRotation), tiltForce * Time.deltaTime);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(inputRotation), tiltForce * Time.deltaTime);
 
         LimitRotation();
 
