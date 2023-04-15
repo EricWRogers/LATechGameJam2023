@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     public MeshRenderer mesh;
     public float flashTime = .5f;
+    public float aiTurnSpeed = 0.8f;
 
     [Header("Standard Movement")]
     public float directionLockDistance = 50f;
@@ -93,9 +94,12 @@ public class EnemyController : MonoBehaviour
     }
 
     private void LookAtPlayer()
-    {
-        if (lookAt)
-            transform.LookAt(playerShip.transform.position);
+    {        
+        Quaternion lookTarget = Quaternion.LookRotation(
+            playerShip.transform.position
+            - transform.position);
+        
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookTarget, Time.deltaTime);
     }
 
     private void HandleBoosting()
