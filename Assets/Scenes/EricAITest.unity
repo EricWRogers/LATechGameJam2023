@@ -1703,55 +1703,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1817015988 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 805195772216998394, guid: 037ebfd6633e76447871f5cf0be01187,
-    type: 3}
-  m_PrefabInstance: {fileID: 805195770544164686}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1817015990 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 805195772216998392, guid: 037ebfd6633e76447871f5cf0be01187,
-    type: 3}
-  m_PrefabInstance: {fileID: 805195770544164686}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817015988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b73390220fd67034bbcd84553b94b5d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1817015991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817015988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad54517dc19258185960ef6d2f3a1b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeOut:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1817015990}
-        m_TargetAssemblyTypeName: EnemyWeaponController, Assembly-CSharp
-        m_MethodName: Shoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  AutoStart: 1
-  AutoRestart: 1
-  CountDownTime: 1
-  timeScale: 1
 --- !u!1 &1869630795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,11 +2119,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LittleEnemyShip
-      objectReference: {fileID: 0}
-    - target: {fileID: 805195770607941761, guid: 037ebfd6633e76447871f5cf0be01187,
-        type: 3}
-      propertyPath: mesh
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 805195770607941790, guid: 037ebfd6633e76447871f5cf0be01187,
         type: 3}
