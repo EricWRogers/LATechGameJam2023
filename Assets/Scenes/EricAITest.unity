@@ -562,6 +562,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesh: {fileID: 5914121353294152443}
   flashTime: 0.2
+  aiTurnSpeed: 0.8
+  speed: 10
+  minLookAtDistance: 15
   directionLockDistance: 36
   yawTorque: 500
   pitchTorque: 1000
@@ -2561,7 +2564,7 @@ MonoBehaviour:
   yawTorque: 100
   pitchTorque: 100
   rollTorque: 200
-  thrust: 100
+  thrust: 200
   upThrust: 50
   strafeThrust: 50
   thrustGlideReduction: 0.5
