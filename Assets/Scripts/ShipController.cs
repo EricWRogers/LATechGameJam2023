@@ -59,7 +59,7 @@ public class ShipController : MonoBehaviour
     {
         if (inputRotation != Vector3.zero)
         {
-            rb.AddTorque(inputRotation * tiltForce * Time.deltaTime);
+            //rb.AddTorque(inputRotation * tiltForce * Time.deltaTime);
         }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(inputRotation), tiltForce * Time.deltaTime);
