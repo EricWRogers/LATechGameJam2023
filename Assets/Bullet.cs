@@ -44,7 +44,7 @@ public class Bullet : MonoBehaviour
             if (info.transform.CompareTag("Enemy") || info.transform.CompareTag("Player"))
             {
                 Debug.Log("Hit Enemy");
-                info.transform.GetComponentInParent<Health>().Damage(damage);
+                info.transform.GetComponentInParent<Health>().Damage(Mathf.RoundToInt(damage * Stats.Instance.attackModifier));
                 Destroy(gameObject);
             }
         }

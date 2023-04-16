@@ -116,8 +116,8 @@ public class NewShipController : MonoBehaviour
             float currentThrust;
 
             if (boosting)
-                currentThrust = thrust * boostMultiplier;
-            else currentThrust = thrust;
+                currentThrust = thrust * Stats.Instance.speedModifier * boostMultiplier;
+            else currentThrust = thrust * Stats.Instance.speedModifier;
 
             rb.AddRelativeForce(Vector3.forward * thrustInput * currentThrust * Time.deltaTime);
             glide = thrust;
