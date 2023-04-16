@@ -9,7 +9,7 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] AudioMixer mixer;
     [SerializeField] Slider masterSlider;
     [SerializeField] Slider musicSlider;
-    [SerializeField] Slider sfxSlider;  
+    [SerializeField] Slider sfxSlider;
 
     void Awake()
     {
@@ -19,6 +19,8 @@ public class VolumeSettings : MonoBehaviour
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
         sfxSlider.minValue = 0.0001f;
         sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+
+
     }
 
     public void SetMasterVolume(float value)
@@ -34,5 +36,6 @@ public class VolumeSettings : MonoBehaviour
     public void SetSFXVolume(float value)
     {
         mixer.SetFloat("SFXVolume", Mathf.Log10(value) * 20.0f);
-    }         
+    }
+
 }
