@@ -9,6 +9,7 @@ public class Navigator : MonoBehaviour
     public GameObject upgradeMenu;
     public GameObject loseScreen;
     public GameObject winScreen;
+    public GameObject timer;
 
     private void Awake()
     {
@@ -40,5 +41,10 @@ public class Navigator : MonoBehaviour
     {
         winScreen.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    public void TurnOnTimer()
+    {
+        timer.SetActive(true);
     }
 }

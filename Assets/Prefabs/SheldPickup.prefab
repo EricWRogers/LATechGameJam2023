@@ -64,8 +64,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   amount: 10
-  pullRange: 30
-  pullSpeed: 500
+  pullRange: 60
+  pullSpeed: 800
   pullTorque: 100
   collectRadius: 6
 --- !u!1001 &3980377278992689718
