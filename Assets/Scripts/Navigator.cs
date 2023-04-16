@@ -10,6 +10,7 @@ public class Navigator : MonoBehaviour
     public GameObject loseScreen;
     public GameObject winScreen;
     public GameObject timer;
+    public GameObject warning;
 
     private void Awake()
     {
@@ -46,5 +47,15 @@ public class Navigator : MonoBehaviour
     public void TurnOnTimer()
     {
         timer.SetActive(true);
+    }
+
+    public void TurnOnWarning()
+    {
+        warning.SetActive(true);
+    }
+
+    public void TurnOffWarning()
+    {
+        warning.SetActive(false);
     }
 }

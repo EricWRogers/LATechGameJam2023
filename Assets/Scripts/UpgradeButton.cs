@@ -32,6 +32,28 @@ public class UpgradeButton : MonoBehaviour
         FindObjectOfType<ShipHealth>().Heal(Stats.Instance.healthRepaired);
     }
 
+    public void Spend()
+    {
+        switch(type)
+        {
+            case StatType.Attack:
+                Inventory.Instance.Remove(PickupType.RedCrystal, Stats.Instance.currentAttackCost);
+                Inventory.Instance.Remove(PickupType.Scrap, Stats.Instance.currentAttackScrapCost);
+                break;
+            case StatType.Defense:
+                Inventory.Instance.Remove(PickupType.BlueCrystal, Stats.Instance.currentDefenseCost);
+                Inventory.Instance.Remove(PickupType.Scrap, Stats.Instance.currentDefenseScrapCost);
+                break;
+            case StatType.Speed:
+                Inventory.Instance.Remove(PickupType.GreenCrystal, Stats.Instance.currentSpeedCost);
+                Inventory.Instance.Remove(PickupType.Scrap, Stats.Instance.currentSpeedScrapCost);
+                break;
+            case StatType.Repair:
+                Inventory.Instance.Remove(PickupType.Scrap, Stats.Instance.repairCost);
+                break;
+        }
+    }
+
     private void Update()
     {
         if (Inventory.Instance.scrapCount < Stats.Instance.currentAttackScrapCost 
@@ -64,11 +86,16 @@ public class UpgradeButton : MonoBehaviour
 
                 if (Inventory.Instance.scrapCount < Stats.Instance.currentAttackScrapCost || Inventory.Instance.redCrystalCount < Stats.Instance.currentAttackCost)
                 {
-                    typeReqText.color = Color.red;
                     button.interactable = false;
                 }
-                else if (!maxed)
+
+                if (Inventory.Instance.redCrystalCount < Stats.Instance.currentAttackCost)
                 {
+                    typeReqText.color = Color.red;
+                }
+                else if (!maxed && !(Inventory.Instance.scrapCount < Stats.Instance.currentAttackScrapCost || Inventory.Instance.redCrystalCount < Stats.Instance.currentAttackCost))
+                {
+                    button.interactable = true;
                     typeReqText.color = Color.white;
                 }
                 break;
@@ -87,7 +114,7 @@ public class UpgradeButton : MonoBehaviour
                     maxed = true;
                 }
 
-                if (Inventory.Instance.scrapCount < Stats.Instance.currentDefenseScrapCost || Inventory.Instance.blueCrystalCount < Stats.Instance.currentDefenseCost)
+                if (Inventory.Instance.blueCrystalCount < Stats.Instance.currentDefenseCost)
                 {
                     typeReqText.color = Color.red;
                     button.interactable = false;
@@ -113,7 +140,7 @@ public class UpgradeButton : MonoBehaviour
                     maxed = true;
                 }
 
-                if (Inventory.Instance.scrapCount < Stats.Instance.currentSpeedScrapCost || Inventory.Instance.greenCrystalCount < Stats.Instance.currentSpeedCost)
+                if (Inventory.Instance.greenCrystalCount < Stats.Instance.currentSpeedCost)
                 {
                     typeReqText.color = Color.red;
                     button.interactable = false;

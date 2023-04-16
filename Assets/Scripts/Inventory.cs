@@ -49,4 +49,27 @@ public class Inventory : MonoBehaviour
                 break;
         }
     }
+
+    public void Remove(PickupType type, int amount)
+    {
+        switch (type)
+        {
+            case PickupType.Scrap:
+                scrapCount -= amount;
+                onInventoryChanged.Invoke(scrapCount, PickupType.Scrap);
+                break;
+            case PickupType.GreenCrystal:
+                greenCrystalCount -= amount;
+                onInventoryChanged.Invoke(greenCrystalCount, PickupType.GreenCrystal);
+                break;
+            case PickupType.BlueCrystal:
+                blueCrystalCount -= amount;
+                onInventoryChanged.Invoke(blueCrystalCount, PickupType.BlueCrystal);
+                break;
+            case PickupType.RedCrystal:
+                redCrystalCount -= amount;
+                onInventoryChanged.Invoke(redCrystalCount, PickupType.RedCrystal);
+                break;
+        }
+    }
 }
