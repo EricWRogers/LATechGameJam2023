@@ -67,8 +67,6 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(GetComponent<SuperPupSystems.Helper.Health>().CurrentHealth);
-
         if (Vector3.Distance(playerShip.transform.position,transform.position)>directionLockDistance)
         {
             LookAtPlayer();

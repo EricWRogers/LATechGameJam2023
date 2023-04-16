@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using OmnicatLabs.Managers;
+using SuperPupSystems.Helper;
 
 public class ShipHealth : MonoBehaviour
 {
@@ -10,6 +10,8 @@ public class ShipHealth : MonoBehaviour
     public float shieldRegenInterval = 1f;
     public int maxHealth = 100;
     public int maxShield = 100;
+    public Timer regenStartTimer;
+    public Timer shieldRegenTimer;
 
     public UnityEvent onHurt = new UnityEvent();
     public UnityEvent onDie = new UnityEvent();
@@ -24,27 +26,33 @@ public class ShipHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         currentShield = maxShield;
+
+        regenStartTimer.TimeOut.AddListener(StartShieldRegen);
+        shieldRegenTimer.TimeOut.AddListener(AddShield);
+        onHurt.AddListener(StopShieldRegen);
     }
 
     public void Damage(int amount)
     {
-        if (amount > currentShield)
-        {
-            int overDamage = currentShield - amount;
-            currentShield -= amount;
-            currentHealth -= overDamage;
-        }
-        else
-        {
-            currentShield -= amount;
-        }
+        //if (amount > currentShield)
+        //{
+        //    int overDamage = currentShield - amount;
+        //    currentShield -= amount;
+        //    currentHealth -= overDamage;
+        //}
+        //else
+        //{
+        //    currentShield -= amount;
+        //}
 
-        TimerManager.Instance.CreateTimer(timeToStartRegen, StartShieldRegen);
+        currentShield -= amount;
+
+        //regenStartTimer.StartTimer(timeToStartRegen, false);
     }
 
     private void StartShieldRegen()
     {
-        TimerManager.Instance.CreateTimer(shieldRegenInterval, AddShield, true);
+        shieldRegenTimer.StartTimer(shieldRegenInterval, true);
     }
 
     public void AddShield()
@@ -52,8 +60,28 @@ public class ShipHealth : MonoBehaviour
         currentShield++;
     }
 
+    public void StopShieldRegen()
+    {
+        shieldRegenTimer.StopTimer();
+    }
+
+    public float GetNormalizedHealth()
+    {
+        return currentHealth / maxHealth;
+    }
+
+    public float GetNormalizedShield()
+    {
+        return (float)currentShield / maxShield;
+    }
+
     private void Update()
     {
-        
+        Debug.Log(GetNormalizedShield());
+
+        //if (currentShield == maxShield)
+        //{
+        //    shieldRegenTimer.StopTimer();
+        //}
     }
 }
