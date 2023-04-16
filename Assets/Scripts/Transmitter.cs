@@ -9,6 +9,9 @@ public class Transmitter : MonoBehaviour
     public UnityEvent finalDistanceWarning;
     public UnityEvent lostConnection;
     public UnityEvent returnedToSafeRange;
+    public UnityEvent startEndGame;
+    public UnityEvent youWon;
+    public SuperPupSystems.Helper.Timer endGameTimer;
 
     public bool distanceWarningActive = false;
     public bool finalDistanceWarningActive = false;
@@ -32,6 +35,17 @@ public class Transmitter : MonoBehaviour
     {
         Debug.Log("no");
         lineRenderer.SetPosition(1, player.transform.position - player.transform.up);
+    }
+
+    public void UnlockAllUpgrades()
+    {
+        startEndGame.Invoke();
+        endGameTimer.StartTimer();
+    }
+
+    public void FinalTimerEnded()
+    {
+        youWon.Invoke();
     }
 
     public void CheckConnection()
