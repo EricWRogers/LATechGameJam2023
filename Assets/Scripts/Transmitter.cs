@@ -33,7 +33,6 @@ public class Transmitter : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("no");
         lineRenderer.SetPosition(1, player.transform.position - player.transform.up);
     }
 

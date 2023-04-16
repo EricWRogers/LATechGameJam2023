@@ -11,7 +11,7 @@ public class RandomItem <T>
     public T item;
 }
 
-public class PercentRandom <T> : MonoBehaviour
+public class PercentRandom <T>
 {
     public List<RandomItem<T>> items = new List<RandomItem<T>>();
     private int numOfValidPoints;

@@ -30,6 +30,7 @@ public class ShipHealth : MonoBehaviour
         regenStartTimer.TimeOut.AddListener(StartShieldRegen);
         shieldRegenTimer.TimeOut.AddListener(AddShield);
         onHurt.AddListener(StopShieldRegen);
+        onDie.AddListener(Die);
     }
 
     public void Damage(int amount)
@@ -57,6 +58,11 @@ public class ShipHealth : MonoBehaviour
         }
 
         regenStartTimer.StartTimer(timeToStartRegen, false);
+    }
+
+    public void Die()
+    {
+        Navigator.Instance.OpenLoseScreen();
     }
 
     private void StartShieldRegen()

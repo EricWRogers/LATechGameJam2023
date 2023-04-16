@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3905084182164540480}
   - component: {fileID: 1285023524435196042}
   - component: {fileID: 9061385370738134580}
+  - component: {fileID: 1871249688229834230}
+  - component: {fileID: 7673819797788320938}
   m_Layer: 0
   m_Name: asteroid2
   m_TagString: Destructables
@@ -26,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780721865597737311}
-  m_LocalRotation: {x: -0.5785916, y: 0.40648714, z: 0.4064871, w: 0.5785916}
+  m_LocalRotation: {x: -0.57859015, y: 0.4064892, z: 0.4064892, w: 0.57859015}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 70.18}
 --- !u!33 &3905084182164540480
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -107,6 +109,43 @@ MonoBehaviour:
       m_Calls: []
   OutOfHealth:
     m_PersistentCalls:
-      m_Calls: []
-  MaxHealth: 100
-  CurrentHealth: 0
+      m_Calls:
+      - m_Target: {fileID: 7673819797788320938}
+        m_TargetAssemblyTypeName: DestroyHelper, Assembly-CSharp
+        m_MethodName: DestroyNow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  MaxHealth: 10
+  CurrentHealth: 10
+--- !u!65 &1871249688229834230
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780721865597737311}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.028000627, y: 0.026506877, z: 0.027765518}
+  m_Center: {x: -0.0016766979, y: 0.00005899066, z: 0.006828049}
+--- !u!114 &7673819797788320938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780721865597737311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456694eaba2d5004eab7daac34188081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
