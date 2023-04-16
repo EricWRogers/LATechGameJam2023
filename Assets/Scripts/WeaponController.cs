@@ -33,8 +33,9 @@ public class WeaponController : MonoBehaviour
 
     private void Update()
     {
-        if (shootHeld && canShoot)
+        if (shootHeld && canShoot && Time.timeScale != 0.0f)
         {
+            GetComponent<AudioSource>().Play();
             canShoot = false;
             foreach (GameObject gun in guns)
             {
