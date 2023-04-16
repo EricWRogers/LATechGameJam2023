@@ -56,9 +56,9 @@ public class UpgradeButton : MonoBehaviour
 
     private void Update()
     {
-        if (Inventory.Instance.scrapCount < Stats.Instance.currentAttackScrapCost 
+        if ((Inventory.Instance.scrapCount < Stats.Instance.currentAttackScrapCost 
             || Inventory.Instance.scrapCount < Stats.Instance.currentDefenseScrapCost
-            || Inventory.Instance.scrapCount < Stats.Instance.currentSpeedScrapCost)
+            || Inventory.Instance.scrapCount < Stats.Instance.currentSpeedScrapCost) && type != StatType.Repair)
         {
             scrapReqText.color = Color.red;
         }
@@ -114,10 +114,14 @@ public class UpgradeButton : MonoBehaviour
                     maxed = true;
                 }
 
+                if (Inventory.Instance.scrapCount < Stats.Instance.currentDefenseScrapCost || Inventory.Instance.blueCrystalCount < Stats.Instance.currentDefenseCost)
+                {
+                    button.interactable = false;
+                }
+
                 if (Inventory.Instance.blueCrystalCount < Stats.Instance.currentDefenseCost)
                 {
                     typeReqText.color = Color.red;
-                    button.interactable = false;
                 }
                 else if (!maxed)
                 {
@@ -140,10 +144,14 @@ public class UpgradeButton : MonoBehaviour
                     maxed = true;
                 }
 
+                if (Inventory.Instance.scrapCount < Stats.Instance.currentSpeedScrapCost || Inventory.Instance.greenCrystalCount < Stats.Instance.currentSpeedCost)
+                {
+                    button.interactable = false;
+                }
+
                 if (Inventory.Instance.greenCrystalCount < Stats.Instance.currentSpeedCost)
                 {
                     typeReqText.color = Color.red;
-                    button.interactable = false;
                 }
                 else if (!maxed)
                 {
@@ -156,8 +164,12 @@ public class UpgradeButton : MonoBehaviour
 
                 if (Inventory.Instance.scrapCount < Stats.Instance.repairCost)
                 {
-                    typeReqText.color = Color.red;
                     button.interactable = false;
+                }
+
+                if (Inventory.Instance.scrapCount < Stats.Instance.repairCost)
+                {
+                    scrapReqText.color = Color.red;
                 }
                 else
                 {

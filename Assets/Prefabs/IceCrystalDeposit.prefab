@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8708785507538740066}
   - component: {fileID: 1649233164}
   - component: {fileID: -826642194213849968}
+  - component: {fileID: 8946200079580973551}
   m_Layer: 0
   m_Name: IceCrystalDeposit
   m_TagString: Destructables
@@ -140,6 +141,18 @@ MonoBehaviour:
   OutOfHealth:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8946200079580973551}
+        m_TargetAssemblyTypeName: BreakHelper, Assembly-CSharp
+        m_MethodName: SpawnBreak
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1649233164}
         m_TargetAssemblyTypeName: DropController, Assembly-CSharp
         m_MethodName: SpawnDrops
@@ -197,3 +210,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.023504324, y: 0.041131496, z: 0.032764576}
   m_Center: {x: 0.00034655258, y: -0.0019668676, z: 0.0012137601}
+--- !u!114 &8946200079580973551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6880513425918866565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267a8dcab0b65da48add615e801d21ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8291519843706418931}
   - component: {fileID: -4428952301448910428}
   - component: {fileID: -3097228027284761991}
+  - component: {fileID: 774709912}
   m_Layer: 0
   m_Name: asteroid1
   m_TagString: Destructables
@@ -110,6 +111,18 @@ MonoBehaviour:
   OutOfHealth:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 774709912}
+        m_TargetAssemblyTypeName: BreakHelper, Assembly-CSharp
+        m_MethodName: SpawnBreak
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: -3097228027284761991}
         m_TargetAssemblyTypeName: DestroyHelper, Assembly-CSharp
         m_MethodName: DestroyNow
@@ -147,5 +160,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 456694eaba2d5004eab7daac34188081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &774709912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8059669561264889160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267a8dcab0b65da48add615e801d21ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
