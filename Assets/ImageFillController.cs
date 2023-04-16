@@ -18,8 +18,6 @@ public class ImageFillController : MonoBehaviour
     {
         staminaFill.fillAmount = FindObjectOfType<NewShipController>().GetNormalizedBoost();
         healthFill.fillAmount = FindObjectOfType<ShipHealth>().GetNormalizedHealth();
-
-
         shieldFill.fillAmount = FindObjectOfType<ShipHealth>().GetNormalizedShield();
         //time += Time.deltaTime * lerpSpeed;
         //shieldFill.fillAmount = Mathf.Lerp(shieldFill.fillAmount, FindObjectOfType<ShipHealth>().currentShield, time);

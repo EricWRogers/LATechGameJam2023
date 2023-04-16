@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Thrust",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "4dd5b170-cb30-45fb-9f0f-a1c1e71dbc7d",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -63,6 +63,15 @@
                     "name": "Shoot",
                     "type": "Button",
                     "id": "5d666cf1-bff4-460f-be93-c4488d469496",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenUpgradeMenu",
+                    "type": "Button",
+                    "id": "53be0d09-58ff-4881-9ba2-cf729901d545",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -397,6 +406,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "987abda3-3047-452c-8ee1-b9d13c7f9363",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenUpgradeMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "72a25ac9-dede-4c62-98ef-fc38a9a97d89",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenUpgradeMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

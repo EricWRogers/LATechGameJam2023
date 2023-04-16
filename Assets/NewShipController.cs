@@ -39,6 +39,7 @@ public class NewShipController : MonoBehaviour
     private bool boosting = false;
     private float currentBoostAmount = 0f;
     private List<Color> originalColors = new List<Color>();
+    private bool menuIsOpen = false;
 
     private void Start()
     {
@@ -182,6 +183,34 @@ public class NewShipController : MonoBehaviour
     public void OnBoost(InputAction.CallbackContext context)
     {
         boosting = context.performed;
+    }
+
+    public void OnOpenMenu(InputAction.CallbackContext context)
+    {
+        if (!menuIsOpen && context.performed)
+        {
+            menuIsOpen = true;
+            Navigator.Instance.OpenUpgradeMenu();
+        }
+        else if (menuIsOpen && context.performed)
+        {
+            menuIsOpen = false;
+            Navigator.Instance.CloseUpgradeMenu();
+        }
+
+        //if (menuIsOpen && context.performed)
+        //{
+        //    menuIsOpen = false;
+        //    Navigator.Instance.CloseUpgradeMenu();
+        //    return;
+        //}
+
+        //if (context.performed && !menuIsOpen)
+        //{
+        //    Navigator.Instance.OpenUpgradeMenu();
+        //    menuIsOpen = true;
+        //    return;
+        //}
     }
     #endregion
 }

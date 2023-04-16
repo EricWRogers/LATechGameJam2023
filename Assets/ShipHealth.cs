@@ -20,7 +20,7 @@ public class ShipHealth : MonoBehaviour
     public int currentHealth;
     [HideInInspector]
     public int currentShield;
-    private bool regen = false;
+    private bool shieldsUp = true;
 
     private void Start()
     {
@@ -34,20 +34,29 @@ public class ShipHealth : MonoBehaviour
 
     public void Damage(int amount)
     {
-        //if (amount > currentShield)
-        //{
-        //    int overDamage = currentShield - amount;
-        //    currentShield -= amount;
-        //    currentHealth -= overDamage;
-        //}
-        //else
-        //{
-        //    currentShield -= amount;
-        //}
+        if (currentShield <= 0)
+        {
+            shieldsUp = false;
+            currentHealth -= amount;
+        }
 
-        currentShield -= amount;
+        if (amount > currentShield && shieldsUp)
+        {
+            int overDamage = amount - currentShield;
+            currentShield -= amount;
+            currentHealth -= overDamage;
+        }
+        else
+        {
+            currentShield -= amount;
+        }
 
-        //regenStartTimer.StartTimer(timeToStartRegen, false);
+        if (currentHealth <= 0f)
+        {
+            onDie.Invoke();
+        }
+
+        regenStartTimer.StartTimer(timeToStartRegen, false);
     }
 
     private void StartShieldRegen()
@@ -58,6 +67,7 @@ public class ShipHealth : MonoBehaviour
     public void AddShield()
     {
         currentShield++;
+        shieldsUp = true;
     }
 
     public void StopShieldRegen()
@@ -67,7 +77,7 @@ public class ShipHealth : MonoBehaviour
 
     public float GetNormalizedHealth()
     {
-        return currentHealth / maxHealth;
+        return (float)currentHealth / maxHealth;
     }
 
     public float GetNormalizedShield()
@@ -77,11 +87,11 @@ public class ShipHealth : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(GetNormalizedShield());
+        currentShield = Mathf.RoundToInt(Mathf.Clamp(currentShield, 0f, maxShield));
 
-        //if (currentShield == maxShield)
-        //{
-        //    shieldRegenTimer.StopTimer();
-        //}
+        if (currentShield == maxShield)
+        {
+            shieldRegenTimer.StopTimer();
+        }
     }
 }

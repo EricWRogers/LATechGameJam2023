@@ -850,7 +850,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee353caede690a43925a119aace6c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpSpeed: 1
   staminaFill: {fileID: 3856356}
+  healthFill: {fileID: 0}
+  shieldFill: {fileID: 0}
 --- !u!114 &1039359016 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9146695565493745132, guid: 8e18796187366554aa062fba0cfa8e87,
@@ -2389,6 +2392,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64d307d08e467ab46a9c4bcd6c614cd5, type: 3}
+--- !u!1 &2833839768993250498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2833839768609689697, guid: 64d307d08e467ab46a9c4bcd6c614cd5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2833839768993250497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2833839768993250499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2833839768993250498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4836a9164d888fb4fa048d6643717eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7605299775344313152
 PrefabInstance:
   m_ObjectHideFlags: 0
