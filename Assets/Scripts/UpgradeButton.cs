@@ -164,12 +164,12 @@ public class UpgradeButton : MonoBehaviour
 
                 levelText.SetText($"{FindObjectOfType<ShipHealth>().currentHealth} / {FindObjectOfType<ShipHealth>().maxHealth}");
 
-                if (Inventory.Instance.scrapCount < Stats.Instance.repairCost)
+                if (Inventory.Instance.scrapCount < Stats.Instance.repairCost || FindObjectOfType<ShipHealth>().currentHealth == FindObjectOfType<ShipHealth>().maxHealth)
                 {
                     button.interactable = false;
                 }
 
-                if (Inventory.Instance.scrapCount < Stats.Instance.repairCost)
+                if (Inventory.Instance.scrapCount < Stats.Instance.repairCost || FindObjectOfType<ShipHealth>().currentHealth == FindObjectOfType<ShipHealth>().maxHealth)
                 {
                     scrapReqText.color = Color.red;
                 }
