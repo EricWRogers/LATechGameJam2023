@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 391257955985191853}
   - component: {fileID: 391257955985191850}
   - component: {fileID: 391257955985191855}
+  - component: {fileID: 2803748329615583687}
   m_Layer: 7
   m_Name: PlayerShip
   m_TagString: Player
@@ -474,6 +475,30 @@ MonoBehaviour:
       m_Calls: []
   MaxHealth: 100
   CurrentHealth: 1
+--- !u!114 &2803748329615583687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391257955985191848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd48ebcc9cc8024bb86d055b8777fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountIncreaseModifier: 1.5
+  baseScrapCost: 20
+  baseAttackCost: 1
+  baseDefenseCost: 1
+  baseSpeedCost: 1
+  currentScrapCost: 0
+  currentAttackCost: 0
+  currentDefenseCost: 0
+  currentSpeedCost: 0
+  attackModifier: 1
+  speedModifier: 1
+  defenseModifier: 1
 --- !u!1 &391257956051408709
 GameObject:
   m_ObjectHideFlags: 0
