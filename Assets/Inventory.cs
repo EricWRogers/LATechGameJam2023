@@ -12,13 +12,13 @@ public class Inventory : MonoBehaviour
 
     public InventoryChangedEvent onInventoryChanged = new InventoryChangedEvent();
 
-    [HideInInspector]
+    //[HideInInspector]
     public int scrapCount;
-    [HideInInspector]
+    //[HideInInspector]
     public int greenCrystalCount;
-    [HideInInspector]
+    //[HideInInspector]
     public int blueCrystalCount;
-    [HideInInspector]
+    //[HideInInspector]
     public int redCrystalCount;
 
     private void Awake()
