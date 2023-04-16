@@ -6,7 +6,8 @@ public enum StatType
 {
     Attack,
     Speed,
-    Defense
+    Defense,
+    Repair
 }
 
 public class Stats : MonoBehaviour
@@ -14,13 +15,19 @@ public class Stats : MonoBehaviour
     public static Stats Instance;
 
     public float amountIncreaseModifier = 1.5f;
-    public int baseScrapCost = 20;
+    public int baseScrapCost = 5;
     public int baseAttackCost = 1;
     public int baseDefenseCost = 1;
     public int baseSpeedCost = 1;
+    public int repairCost = 10;
+    public int healthRepaired = 20;
 
     [HideInInspector]
-    public int currentScrapCost;
+    public int currentAttackScrapCost;
+    [HideInInspector]
+    public int currentDefenseScrapCost;
+    [HideInInspector]
+    public int currentSpeedScrapCost;
     [HideInInspector]
     public int currentAttackCost;
     [HideInInspector]
@@ -43,7 +50,9 @@ public class Stats : MonoBehaviour
         currentAttackCost = baseAttackCost;
         currentDefenseCost = baseDefenseCost;
         currentSpeedCost = baseSpeedCost;
-        currentScrapCost = baseScrapCost;
+        currentAttackScrapCost = baseScrapCost;
+        currentDefenseScrapCost = baseScrapCost;
+        currentSpeedScrapCost = baseScrapCost;
     }
 
     public void IncreaseStat(int index)
@@ -56,26 +65,26 @@ public class Stats : MonoBehaviour
                 if (attackModifier >= 1.5f)
                     return;
                 currentAttackCost = Mathf.RoundToInt(amountIncreaseModifier * currentAttackCost);
-                currentScrapCost = Mathf.RoundToInt(amountIncreaseModifier * currentScrapCost);
+                currentAttackScrapCost = Mathf.RoundToInt(amountIncreaseModifier * currentAttackScrapCost);
                 attackModifier += .1f;
                 break;
             case StatType.Defense:
                 if (defenseModifier >= 1.5f)
                     return;
                 currentDefenseCost = Mathf.RoundToInt(amountIncreaseModifier * currentDefenseCost);
-                currentScrapCost = Mathf.RoundToInt(amountIncreaseModifier * currentScrapCost);
+                currentDefenseScrapCost = Mathf.RoundToInt(amountIncreaseModifier * currentDefenseScrapCost);
                 defenseModifier += .1f;
                 break;
             case StatType.Speed:
                 if (speedModifier >= 1.5f)
                     return;
                 currentSpeedCost = Mathf.RoundToInt(amountIncreaseModifier * currentSpeedCost);
-                currentScrapCost = Mathf.RoundToInt(amountIncreaseModifier * currentScrapCost);
+                currentSpeedScrapCost = Mathf.RoundToInt(amountIncreaseModifier * currentSpeedScrapCost);
                 speedModifier += .1f;
                 break;
         }
 
-        if (attackModifier == 1.5f && defenseModifier == 1.5f && speedModifier == 1.5f)
+        if (attackModifier >= 1.5f && defenseModifier >= 1.5f && speedModifier >= 1.5f)
         {
             FindObjectOfType<Transmitter>().UnlockAllUpgrades();
         }

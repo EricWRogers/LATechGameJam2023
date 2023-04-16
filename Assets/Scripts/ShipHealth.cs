@@ -33,6 +33,11 @@ public class ShipHealth : MonoBehaviour
         onDie.AddListener(Die);
     }
 
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+    }
+
     public void Damage(int amount)
     {
         if (currentShield <= 0)
@@ -94,6 +99,7 @@ public class ShipHealth : MonoBehaviour
     private void Update()
     {
         currentShield = Mathf.RoundToInt(Mathf.Clamp(currentShield, 0f, maxShield));
+        currentHealth = Mathf.RoundToInt(Mathf.Clamp(currentHealth, 0f, maxHealth));
 
         if (currentShield == maxShield)
         {
