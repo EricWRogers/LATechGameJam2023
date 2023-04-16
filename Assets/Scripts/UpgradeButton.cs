@@ -123,7 +123,7 @@ public class UpgradeButton : MonoBehaviour
                 {
                     typeReqText.color = Color.red;
                 }
-                else if (!maxed)
+                else if (!maxed && !(Inventory.Instance.scrapCount < Stats.Instance.currentDefenseScrapCost || Inventory.Instance.blueCrystalCount < Stats.Instance.currentDefenseCost))
                 {
                     button.interactable = true;
                     typeReqText.color = Color.white;
@@ -153,7 +153,7 @@ public class UpgradeButton : MonoBehaviour
                 {
                     typeReqText.color = Color.red;
                 }
-                else if (!maxed)
+                else if (!maxed && !(Inventory.Instance.scrapCount < Stats.Instance.currentSpeedScrapCost || Inventory.Instance.greenCrystalCount < Stats.Instance.currentSpeedCost))
                 {
                     button.interactable = true;
                     typeReqText.color = Color.white;
