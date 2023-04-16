@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/Scenes/StartMenu.unity
     guid: b10384c4036364cc298f32247ca4883a
+  - enabled: 1
+    path: Assets/Scenes/EricAITest.unity
+    guid: df6a6fd4a66502e4e99dfe39c32430b6
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 57a43ac00089e754ba8460678300a52e,
       type: 2}
