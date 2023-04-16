@@ -35,6 +35,7 @@ public class Navigator : MonoBehaviour
     public void OpenLoseScreen()
     {
         loseScreen.SetActive(true);
+        Cursor.visible = true;
         Time.timeScale = 0;
     }
 
