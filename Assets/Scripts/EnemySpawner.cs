@@ -30,9 +30,11 @@ public class EnemySpawner : MonoBehaviour
         {
             Vector3 randomPos = (Random.insideUnitSphere * radiusToSpawn) + playerShip.transform.position;
 
-            Instantiate(particles, randomPos, Quaternion.identity);
+            //Instantiate(particles, randomPos, Quaternion.identity);
 
-           // Instantiate(enemy, randomPos, Quaternion.identity);
+            Instantiate(enemy, randomPos, Quaternion.identity);
+
+            Debug.Log("Spawned");
         }
     }    
 

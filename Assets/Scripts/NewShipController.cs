@@ -50,6 +50,7 @@ public class NewShipController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         currentBoostAmount = maxBoostAmount;
         Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
     public float GetNormalizedBoost()
