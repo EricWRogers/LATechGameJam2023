@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 4247589687687687411}
   - component: {fileID: 2096020014597167161}
   - component: {fileID: -8923745991033084208}
+  - component: {fileID: 8754173353044584333}
+  - component: {fileID: 3269599310657378688}
   m_Layer: 0
   m_Name: UraniumFuelDeposit
-  m_TagString: Untagged
+  m_TagString: Destructables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438664909237254636}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &4247589687687687411
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -136,6 +138,61 @@ MonoBehaviour:
       m_Calls: []
   OutOfHealth:
     m_PersistentCalls:
-      m_Calls: []
-  MaxHealth: 100
-  CurrentHealth: 0
+      m_Calls:
+      - m_Target: {fileID: 8754173353044584333}
+        m_TargetAssemblyTypeName: DropController, Assembly-CSharp
+        m_MethodName: SpawnDrops
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 438664909237254636}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  MaxHealth: 50
+  CurrentHealth: 50
+--- !u!114 &8754173353044584333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438664909237254636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12e865875190ab45aed36bacc68608f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAreaRadius: 5
+  drops:
+  - frequency: 0
+    defaultCount: 0
+    item: {fileID: 6899361851961711794, guid: f5337d1107f14b44c880a15d95c5fba2, type: 3}
+    amount: 5
+--- !u!65 &3269599310657378688
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438664909237254636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.028254863, y: 0.03199165, z: 0.026339673}
+  m_Center: {x: 0.0014757402, y: 0.0011449811, z: 0.0003993768}

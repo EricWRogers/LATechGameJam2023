@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ship
   - Enemy
+  - Destructables
   layers:
   - Default
   - TransparentFX
