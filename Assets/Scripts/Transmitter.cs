@@ -19,16 +19,25 @@ public class Transmitter : MonoBehaviour
     public float lostConnectionDistance = 300.0f;
 
     private GameObject player;
+    private LineRenderer lineRenderer;
 
     void Start()
     {
+        lineRenderer = gameObject.GetComponent<LineRenderer>();
         player = FindObjectOfType<NewShipController>().gameObject;
+        lineRenderer.SetPosition(1 ,player.transform.position - player.transform.up);
+    }
+
+    void Update()
+    {
+        Debug.Log("no");
+        lineRenderer.SetPosition(1, player.transform.position - player.transform.up);
     }
 
     public void CheckConnection()
     {
         float distance = Vector3.Distance(player.gameObject.transform.position, transform.position);
-        Debug.Log(distance);
+        
         if (safeDistanceArea > distance)
         {
             if (distanceWarningActive || finalDistanceWarningActive)
