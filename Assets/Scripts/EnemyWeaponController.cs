@@ -19,6 +19,7 @@ public class EnemyWeaponController : MonoBehaviour
 
     public void Shoot()
     {
+        gameObject.GetComponent<AudioSource>().Play();
         FireCannons();
     }
 

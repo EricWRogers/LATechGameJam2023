@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 805195770607941788}
   - component: {fileID: 206911443}
   - component: {fileID: 482066573}
+  - component: {fileID: 9095794827070584466}
   m_Layer: 8
   m_Name: LittleEnemyShip
   m_TagString: Enemy
@@ -132,7 +133,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 482066573}
+      - m_Target: {fileID: 9095794827070584466}
         m_TargetAssemblyTypeName: DropController, Assembly-CSharp
         m_MethodName: SpawnDrops
         m_Mode: 1
@@ -166,6 +167,24 @@ MonoBehaviour:
   CountDownTime: 1
   timeScale: 1
 --- !u!114 &482066573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805195770607941760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12e865875190ab45aed36bacc68608f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAreaRadius: 7.95
+  drops:
+  - frequency: 0
+    defaultCount: 0
+    item: {fileID: 3225589588325978513, guid: 499a54ccdc2ebba4c80c3d6dc62fd92e, type: 3}
+    amount: 5
+--- !u!114 &9095794827070584466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,6 +308,7 @@ GameObject:
   - component: {fileID: 805195772216998395}
   - component: {fileID: 805195772216998392}
   - component: {fileID: 1817015991}
+  - component: {fileID: 1454655524}
   m_Layer: 8
   m_Name: Guns
   m_TagString: Untagged
@@ -362,6 +382,112 @@ MonoBehaviour:
   AutoRestart: 1
   CountDownTime: 1
   timeScale: 1
+--- !u!82 &1454655524
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805195772216998394}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 471238011390283418, guid: e9dfd6ad0f6722f49be8f5bdb9042334,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 7d25bb809ece8ae45977b474f0172c61, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.002
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.259653
+      value: 0.30855566
+      inSlope: -1.0020039
+      outSlope: -1.0020039
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.002004
+      outSlope: -1.002004
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &805195770950744235
 PrefabInstance:
   m_ObjectHideFlags: 0
