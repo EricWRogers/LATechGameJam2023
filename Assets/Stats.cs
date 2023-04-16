@@ -74,5 +74,10 @@ public class Stats : MonoBehaviour
                 speedModifier += .1f;
                 break;
         }
+
+        if (attackModifier == 1.5f && defenseModifier == 1.5f && speedModifier == 1.5f)
+        {
+            FindObjectOfType<Transmitter>().UnlockAllUpgrades();
+        }
     }
 }

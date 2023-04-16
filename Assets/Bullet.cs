@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour
     {
         if (Physics.Linecast(positionLastFrame, transform.position, out info, mask))
         {
-            if (info.transform.CompareTag("Enemy"))
+            if (info.transform.CompareTag("Enemy") || info.transform.CompareTag("Player") || info.transform.CompareTag("Destructables"))
             {
                 info.transform.GetComponentInParent<Health>().Damage(Mathf.RoundToInt(damage * Stats.Instance.attackModifier));
                 Destroy(gameObject);
