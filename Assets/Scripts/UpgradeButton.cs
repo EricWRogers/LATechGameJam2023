@@ -56,9 +56,9 @@ public class UpgradeButton : MonoBehaviour
 
     private void Update()
     {
-        if (Inventory.Instance.scrapCount < Stats.Instance.currentAttackScrapCost 
+        if ((Inventory.Instance.scrapCount < Stats.Instance.currentAttackScrapCost 
             || Inventory.Instance.scrapCount < Stats.Instance.currentDefenseScrapCost
-            || Inventory.Instance.scrapCount < Stats.Instance.currentSpeedScrapCost)
+            || Inventory.Instance.scrapCount < Stats.Instance.currentSpeedScrapCost) && type != StatType.Repair)
         {
             scrapReqText.color = Color.red;
         }
@@ -169,7 +169,7 @@ public class UpgradeButton : MonoBehaviour
 
                 if (Inventory.Instance.scrapCount < Stats.Instance.repairCost)
                 {
-                    typeReqText.color = Color.red;
+                    scrapReqText.color = Color.red;
                 }
                 else
                 {
