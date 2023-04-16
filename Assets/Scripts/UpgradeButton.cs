@@ -162,6 +162,8 @@ public class UpgradeButton : MonoBehaviour
             case StatType.Repair:
                 scrapReqText.SetText(Stats.Instance.repairCost.ToString());
 
+                levelText.SetText($"{FindObjectOfType<ShipHealth>().currentHealth} / {FindObjectOfType<ShipHealth>().maxHealth}");
+
                 if (Inventory.Instance.scrapCount < Stats.Instance.repairCost)
                 {
                     button.interactable = false;
