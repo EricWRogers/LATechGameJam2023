@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
             Instantiate(particles, randomPos, Quaternion.identity);
 
-            Instantiate(enemy, randomPos, Quaternion.identity);
+           // Instantiate(enemy, randomPos, Quaternion.identity);
         }
     }    
 

@@ -223,9 +223,10 @@ GameObject:
   - component: {fileID: 391257955985191852}
   - component: {fileID: 391257955985191853}
   - component: {fileID: 391257955985191850}
-  - component: {fileID: 391257955985191855}
   - component: {fileID: 2803748329615583687}
   - component: {fileID: 648127713}
+  - component: {fileID: 648127720}
+  - component: {fileID: 648127721}
   m_Layer: 7
   m_Name: PlayerShip
   m_TagString: Player
@@ -433,36 +434,12 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5d666cf1-bff4-460f-be93-c4488d469496
     m_ActionName: ShipControls/Shoot[/Mouse/leftButton]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: ShipControls
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &391257955985191855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391257955985191848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 604dfbbf654f92618bc36972daaa4968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  Healed:
-    m_PersistentCalls:
-      m_Calls: []
-  Hurt:
-    m_PersistentCalls:
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 391257955985191852}
         m_TargetAssemblyTypeName: NewShipController, Assembly-CSharp
-        m_MethodName: OnDamaged
-        m_Mode: 1
+        m_MethodName: OnOpenMenu
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -471,11 +448,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OutOfHealth:
-    m_PersistentCalls:
-      m_Calls: []
-  MaxHealth: 100
-  CurrentHealth: 1
+    m_ActionId: 53be0d09-58ff-4881-9ba2-cf729901d545
+    m_ActionName: ShipControls/OpenUpgradeMenu[/Keyboard/escape]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: ShipControls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!114 &2803748329615583687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,14 +495,66 @@ MonoBehaviour:
   shieldRegenInterval: 1
   maxHealth: 100
   maxShield: 100
+  regenStartTimer: {fileID: 648127721}
+  shieldRegenTimer: {fileID: 648127720}
   onHurt:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 391257955985191852}
+        m_TargetAssemblyTypeName: NewShipController, Assembly-CSharp
+        m_MethodName: OnDamaged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls: []
   currentHealth: 0
   currentShield: 0
+--- !u!114 &648127720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391257955985191848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad54517dc19258185960ef6d2f3a1b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeOut:
+    m_PersistentCalls:
+      m_Calls: []
+  AutoStart: 0
+  AutoRestart: 0
+  CountDownTime: 1
+  timeScale: 1
+--- !u!114 &648127721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391257955985191848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad54517dc19258185960ef6d2f3a1b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeOut:
+    m_PersistentCalls:
+      m_Calls: []
+  AutoStart: 0
+  AutoRestart: 0
+  CountDownTime: 1
+  timeScale: 1
 --- !u!1 &391257956051408709
 GameObject:
   m_ObjectHideFlags: 0
